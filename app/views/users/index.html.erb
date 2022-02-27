@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-dark"><a href="/users/new" class="link-dark">メンバーを追加</a></button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">会員ID</th>
+      <th scope="col">名前</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.name %></td>
+      <td>
+        <%= link_to '編集', edit_user_path(user) %>
+        <%= link_to '削除', user_path(user), method: :delete, class: 'link-warning' %>
+      </td>
+    </tr>
+	<% end %>
+  </tbody>
+</table>
