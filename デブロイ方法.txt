@@ -79,3 +79,38 @@ nginx -v
 
 #nginxの設定ファイルを編集
 sudo vi /etc/nginx/conf.d/rails.conf
+
+#アプリのクローン
+cd /var/www/
+git clone リポジトリのURL
+
+#bundlerをインストール
+bundler -v     (ローカルのバージョンを確認)
+cd レポジトリ名
+gem install bundler -v バージョン
+bundle install
+
+======== bundle install　時のエラー ========
+#gem 'pg', '1.1.4'をインストールできない時
+sudo yum install postgresql
+sudo yum install postgresql-devel
+
+#sqlite-3をインストールできない時
+sudo yum install sqlite-devel
+============================================
+
+#値をコピー
+bundle exec rake secret
+
+#EC2インスタンス内の環境変数は/etc/environmentというファイルで管理
+sudo vi /etc/environment
+DATABASE_PASSWORD='MariaDBのrootユーザーのパスワード'
+SECRET_KEY_BASE='コピーしたsecret_key_baseの値'
+
+#sshを一度入り直し環境変数が適用されているか確認
+ env | grep DATABASE_PASSWORD
+ env | grep SECRET_KEY_BASE
+
+ #アセットファイルをコンパイル
+ #クローンしたアプリのディレクトリに移動
+ rails assets:precompile RAILS_ENV=production
