@@ -1,12 +1,24 @@
 
+<div class="container">
+<p class="fs-1">練習中のメンバー</p>
 
+</div>
 <div class="container pt-5" id="index_page">
+<% @users_in_room.each do |u| %>
 <div class="card text-dark bg-primary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header"><%= u.name%>さん</div>
   <div class="card-body">
-    <h5 class="card-title">Light card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">入室時間：<%= u.entry_time.hour %>時<%= u.entry_time.min %>分</p>
   </div>
 </div>
+<% end %>
 </div>
 
+<%= form_with(model: @user_ent, local: true, url: {controller: 'entry_exit_managements', action: 'update' }) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.select :name, @user_array, {include_blank: "メンバーを選択してください"}, { id: "user_ent", class: "form-control" }  %>
+
+  <%= f.button "入室", value: :entry, class: "btn btn-primary" %>
+  <%= f.button "退室", value: :exit, class: "btn btn-primary" %>
+<% end %>

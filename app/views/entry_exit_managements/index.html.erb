@@ -1,0 +1,20 @@
+
+
+<div class="container pt-5" id="index_page">
+<div class="card text-dark bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><%= @user[0].name%></div>
+  <div class="card-body">
+    <h5 class="card-title">入室時間は</h5>
+    <p class="card-text"><%= @user[0].entry_time %></p>
+  </div>
+</div>
+</div>
+
+<form method="post" action="#">
+<select>
+  <% for user in @user do %>
+    <option value=<%= user.name %>><%= user.name %></option>
+  <% end %>
+</select>
+<input type="submit" value="入室">
+</form>
