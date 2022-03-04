@@ -1,4 +1,5 @@
 class EntryExitManagementsController < ApplicationController
+  before_action :authenticate_owner!, only: [:update]
   require "date"
 
   def index

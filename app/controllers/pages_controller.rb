@@ -12,5 +12,8 @@ class PagesController < ApplicationController
         end
         @users_in_room.sort!{|a, b| a.entry_time.to_i <=> b.entry_time.to_i}
     end
+
+    def readme
         
+    end
 end
