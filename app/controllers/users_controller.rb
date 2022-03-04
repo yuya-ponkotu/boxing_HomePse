@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_owner!, only: [:new, :create, :edit, :destroy]
   def new
     @user = User.new
   end
