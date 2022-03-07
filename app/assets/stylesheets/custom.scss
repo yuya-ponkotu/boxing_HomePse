@@ -13,6 +13,7 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "simple_calendar";
 
 $light-gray: #777;
 
@@ -275,4 +276,9 @@ span.image {
 
 .card {
   z-index: 100;
+}
+
+/*  events index  */
+#event-add-button {
+  background-color: transparent;
 }
