@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'events/index'
   devise_for :owners
   root to: 'pages#index'
   resources :users
+  resources :events, only: [:index, :new, :create]
   post '/entry_exit_managements/update', to: 'entry_exit_managements#update'
   get '/entry_exit_managements/index', to: 'entry_exit_managements#index'
   post '/users/:id/edit', to: 'users#update'

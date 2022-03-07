@@ -16,6 +16,7 @@ gem 'puma',       '4.3.6'
 gem 'sass-rails', '5.1.0'
 gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
+gem "simple_calendar", "~> 2.4"
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
 
@@ -45,7 +46,7 @@ end
 group :production do
   gem 'pg', '1.1.4'
   gem 'unicorn', '5.4.1'
-  gem 'mysql2', '0.5.2'
+  gem 'mysql2', '~> 0.5.3'
 end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
