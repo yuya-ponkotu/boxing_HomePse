@@ -11,9 +11,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)    
     if @user.save
-      redirect_to root_path
+      flash[:info] = "#{@user.name}を登録しました"
+      redirect_to users_path
     else
-      flash[:danger] = "名前が入力されてません"
+      if user_params[:name].empty? && user_params[:yomigana].empty?
+        flash[:danger] = "名前と読み方が入力されてません"
+      elsif user_params[:name].empty?
+        flash[:danger] = "名前が入力されてません"
+      elsif user_params[:yomigana].empty?
+        flash[:danger] = "読み方が入力されてません"
+      end
       redirect_to new_user_path
     end
   end
@@ -23,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 15)
   end
 
   def update
@@ -46,7 +53,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :yomigana)
     end
 
 end
