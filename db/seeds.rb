@@ -9,7 +9,8 @@
 
 
 20.times do |n|
-    gimei = Gimei.unique.kanji 
-    User.create!(name:  gimei,
+    gimei = Gimei.unique.name
+    User.create!(name:  gimei.kanji,
+                 yomigana: gimei.katakana,
                  in_room: false)
   end

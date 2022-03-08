@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
     def index
-        @user = User.all
+        @user = User.order(:yomigana)
         @users_in_room = []
         @user_ent = User.new
         @user_array = []
