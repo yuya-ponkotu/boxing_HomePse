@@ -6,6 +6,8 @@ https://pikawaka.com/rails/ec2_deploy#AMI%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3
 mariadbとnginxの起動を忘れずに
 sudo systemctl start mariadb
 sudo systemctl start nginx
+
+unicorn_rails -c config/unicorn.rb -E production -D
 =================================
 
 sudo yum update

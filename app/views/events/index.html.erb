@@ -1,0 +1,12 @@
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
+<% end %>
+<div class="container">
+<%= link_to '予定を追加', new_event_path, {class: "btn btn-primary text-primary", id: "event-add-button"} %>
+</div>
