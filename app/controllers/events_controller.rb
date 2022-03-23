@@ -1,10 +1,29 @@
 class EventsController < ApplicationController
+  before_action :authenticate_owner!, only: [:new, :create, :destroy, :update]
   def index
     @events = Event.all
   end
 
   def new
     @event = Event.new
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    flash[:info] = "予定を更新しました"
+    redirect_to events_path
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:danger] = "予定を削除しました"
+    redirect_to events_path
   end
 
   def create

@@ -3,7 +3,7 @@
 
   <% events.each do |event| %>
     <div>
-      <%= event.title %>
+      <%= link_to "#{event.title}", "/events/#{event.id}/edit", { method: :get} %>
     </div>
   <% end %>
 <% end %>

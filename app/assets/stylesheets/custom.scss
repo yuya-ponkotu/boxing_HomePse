@@ -287,3 +287,22 @@ span.image {
   background-color: transparent;
 }
 
+.submit .btn {
+  width: 5em;
+  float: left;
+  margin-right: 1em;
+}
+
+#event_content {
+  width: 40em;
+  height: 7em;
+  max-width: 100%;
+  padding: 0 0.5em 0 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #f2f2f2;
+}
+
+.event_destroy_button {
+  width: 5em;
+}
