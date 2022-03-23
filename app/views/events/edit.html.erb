@@ -1,0 +1,25 @@
+<%= form_with(model: @event, local: true) do |form| %>
+
+  <div class="title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+    <div class="time">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+
+  <div class="submit">
+    <%= form.button "変更", type: 'button', onclick: 'submit();', class: "btn btn-primary" %>
+  </div>
+<% end %>
+<%= button_to '削除', {controller: 'events', action: 'destroy'}, {method: :delete, class: "btn btn-danger event_destroy_button" }%>
+
+
