@@ -311,3 +311,60 @@ span.image {
 .readme_infra_image {
   width: 60%;
 }
+
+
+/*  form用 */
+.w-auto {
+  width: auto !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.user_form_label {
+  text-align: center;
+}
+
+.user_form_wrap {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.remember_me_text {
+  float: left;
+  overflow: visible !important;
+  width: fit-content;
+  margin: 0 2em 0 0;
+}
+
+.remember_me_wrap {
+  display:-webkit-box;
+  display:-moz-box;
+  display:-webkit-flexbox;
+  display:-moz-flexbox;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display:-moz-flex;
+  display:flex;
+  -webkit-box-align:center;
+  -moz-box-align:center;
+  -webkit-align-items:center;
+  -moz-align-items:center;
+  align-items:center;
+  padding: 1px;
+}
+#owner_remember_me {
+  margin: 0;
+  width: fit-content;
+}
+
+/* メンバー追加用 */
+.member_form_wrap {
+  margin: 0 auto;
+  width: 60%;
+}
